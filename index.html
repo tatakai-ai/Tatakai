@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tatakai - </title>
+    <title>Tatakai</title>
     <style>
         /* Reset and base styles */
         * {
@@ -18,16 +18,30 @@
             color: #333;
         }
 
-        /* Custom styles */
+        /* Animated Gradient Background */
+        @keyframes gradientAnimation {
+            0% {
+                background: linear-gradient(to bottom, #121212, #2b2b2b);
+            }
+            50% {
+                background: linear-gradient(to bottom, #2b2b2b, #121212);
+            }
+            100% {
+                background: linear-gradient(to bottom, #121212, #2b2b2b);
+            }
+        }
+
         .hero {
-            background: linear-gradient(to bottom, rgba(61, 38, 163, 0.95), rgba(31, 41, 55, 0.95));
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 2rem;
             color: white;
+            background: linear-gradient(to bottom, #121212, #2b2b2b);
+            animation: gradientAnimation 10s ease infinite; /* Animation applied to background */
         }
 
         .logo {
@@ -50,217 +64,180 @@
             padding: 2rem;
             border-radius: 0.5rem;
         }
-        
-        .hero img {
-            max-width: 80%;
-            height: auto;
+
+        /* Side-by-side image container */
+        .image-container {
+            display: flex;
+            gap: 10px;
             margin-bottom: 1rem;
+            max-width: 80%;
         }
+
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(255, 69, 0, 0.5); /* Glowing effect on hover */
+        }
+
         .features {
             padding: 4rem 2rem;
-            background: white;
+            background-color: #121212; /* Dark background */
+            color: #f5f5f5;
+            text-align: center;
+            position: relative;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            color: #1f2937;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6347; /* Accent color */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 15px rgba(255, 69, 0, 0.5); /* Glowing effect */
         }
 
+        /* Feature Cards */
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-top: 2rem;
         }
 
         .feature-card {
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.6); /* Dark transparent background */
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5); /* Subtle glow */
+            width: 300px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
 
-        .feature-card.green {
-            background-color: #f0fdf4;
-        }
-
-        .feature-card.gray {
-            background-color: #f9fafb;
-        }
-
-        .feature-card.yellow {
-            background-color: #fefce8;
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.7); /* Intensified glow on hover */
         }
 
         .feature-title {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6347, #ff4500, #ffcc00);
+            background-size: 400%;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for glow */
             margin-bottom: 1rem;
-            color: #1f2937;
+            transition: background-position 0.5s ease;
+        }
+
+        .feature-card:hover .feature-title {
+            background-position: 100% 50%; /* Glow animation on hover */
         }
 
         .feature-list {
             list-style: none;
+            padding-left: 0;
+            font-size: 1.2rem;
+            color: #e0e0e0;
         }
 
         .feature-list li {
-            margin-bottom: 0.5rem;
-            color: #4b5563;
+            margin: 1rem 0;
         }
 
-        .feature-list li:before {
-            content: "•";
-            color: #059669;
-            font-weight: bold;
-            margin-right: 0.5rem;
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
-        .benefits {
-            background: #14532d;
-            color: white;
-            padding: 4rem 2rem;
+        .fade-in.visible {
+            opacity: 1;
         }
 
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .benefit-card {
-            padding: 1.5rem;
-        }
-
-        .benefit-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .cta {
-            background: #f3f4f6;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .button {
-            display: inline-block;
-            background: #fbbf24;
-            color: #1f2937;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            margin-top: 2rem;
-        }
-
-        .button:hover {
-            background: #f59e0b;
-        }
-
-        /* Responsive adjustments */
+        /* Responsiveness */
         @media (max-width: 768px) {
-            .logo {
-                font-size: 3rem;
-            }
-            
-            .tagline {
-                font-size: 1.25rem;
+            .features-grid {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .section-title {
-                font-size: 1.75rem;
+            .feature-card {
+                width: 80%;
             }
+        }
+
+        /* Animation for Hero Text */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 69, 0, 0.8), 0 0 10px rgba(255, 69, 0, 0.6), 0 0 20px rgba(255, 69, 0, 0.4);
+            }
+            50% {
+                text-shadow: 0 0 10px rgba(255, 69, 0, 0.8), 0 0 20px rgba(255, 69, 0, 0.6), 0 0 30px rgba(255, 69, 0, 0.4);
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(255, 69, 0, 0.8), 0 0 10px rgba(255, 69, 0, 0.6), 0 0 20px rgba(255, 69, 0, 0.4);
+            }
+        }
+
+        .tagline span {
+            font-weight: bold;
+            color: #ff6347;
+            animation: glow 1.5s infinite alternate;
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <img src="1.jpeg" alt="Adapak - Add a Pack for Your Day" style="max-width: 80%; height: auto; margin-bottom: 1rem;">
-            <div class="logo">adapak</div>
-            <div class="tagline">Add a Pack for Your Day</div>
-            <p>Transform one backpack into the perfect companion for every activity with our revolutionary modular system.</p>
+    <div class="hero">
+        <div class="logo">Tatakai</div>
+        <div class="tagline">
+            Fuel the <span>beast</span> in you
         </div>
-    </section>
+        
+        <!-- Updated image container for side-by-side images -->
+        <div class="image-container">
+            <img src="C:\Users\user\Downloads\2.jpg" alt="First Image">
+            <img src="C:\Users\user\Downloads\1.jpg" alt="Second Image">
+        </div>
+
+        <div class="hero-content">
+            <p>Welcome to Tatakai, where power and precision is so great that even unicorns would trade their horns for them. Prepare to be WOWED! 
+                Quality? Check!
+                Innovation? Double check!</p>
+        </div>
+    </div>
 
     <!-- Features Section -->
-    <section class="features">
-        <h2 class="section-title">Key Features</h2>
+    <div class="features" id="features">
+        <h2 class="section-title fade-in visible">Our Features</h2>
         <div class="features-grid">
-            <!-- QuickSwap Modules -->
-            <div class="feature-card green">
-                <h3 class="feature-title">QuickSwap™ Modules</h3>
+            <div class="feature-card fade-in visible">
+                <h3 class="feature-title">Built to Endure</h3>
                 <ul class="feature-list">
-                    <li>Study Module with laptop sleeve</li>
-                    <li>Gym Module with ventilation</li>
-                    <li>Meal Module with insulation</li>
-                    <li>Tech Module with power integration</li>
+                    <li>Engineered for intense movement.</li>
+                    <li>Maximum comfort and durability.</li>
                 </ul>
             </div>
-
-            <!-- Smart Features -->
-            <div class="feature-card gray">
-                <h3 class="feature-title">Smart Features</h3>
+            <div class="feature-card fade-in visible">
+                <h3 class="feature-title">Design for Champions</h3>
                 <ul class="feature-list">
-                    <li>Built-in USB charging</li>
-                    <li>QR lost-and-found system</li>
-                    <li>RFID protection</li>
-                    <li>Water-resistant design</li>
+                    <li>Innovative fit and bold aesthetics.</li>
+                    <li>Crafted for performance at the highest level.</li>
                 </ul>
             </div>
-
-            <!-- Ergonomic Design -->
-            <div class="feature-card yellow">
-                <h3 class="feature-title">Ergonomic Design</h3>
+            <div class="feature-card fade-in visible">
+                <h3 class="feature-title">Ultimate Flexibility</h3>
                 <ul class="feature-list">
-                    <li>Weight distribution system</li>
-                    <li>Memory foam straps</li>
-                    <li>Breathable back panel</li>
-                    <li>Quick-access pockets</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits">
-        <h2 class="section-title" style="color: white;">Why Choose Adapak?</h2>
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <h3 class="benefit-title">Save Time</h3>
-                <p>No more repacking. Switch modules in seconds.</p>
-            </div>
-            <div class="benefit-card">
-                <h3 class="benefit-title">Stay Organized</h3>
-                <p>Each module is perfectly designed for its purpose.</p>
-            </div>
-            <div class="benefit-card">
-                <h3 class="benefit-title">Adapt Instantly</h3>
-                <p>From classroom to gym to travel with one system.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta">
-        <div class="cta-content">
-            <h2 class="section-title">Ready to Transform Your Day?</h2>
-            <p>Join the revolution in modular backpack technology.</p>
-            <a href="#" class="button">Learn More</a>
-        </div>
-    </section>
-</body>
-</html>
+                    <li>Adaptive stretch for
