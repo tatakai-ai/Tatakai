@@ -47,8 +47,29 @@
 
         .tagline {
             font-size: 1.5rem;
-            color: #fbbf24;
             margin-bottom: 2rem;
+        }
+
+        .tagline span {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6347, #ff4500, #ffcc00);
+            background-size: 400%;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: flameEffect 2s infinite linear;
+        }
+
+        @keyframes flameEffect {
+            0% {
+                background-position: 0%;
+            }
+            50% {
+                background-position: 100%;
+            }
+            100% {
+                background-position: 0%;
+            }
         }
 
         .hero-content {
@@ -232,55 +253,4 @@
         </div>
 
         <div class="hero-content">
-            <p>Welcome to Tatakai, where power and precision is so great that even unicorns would trade their horns for them. Prepare to be WOWED! 
-                Quality? Check!
-                Innovation? Double check!</p>
-        </div>
-    </div>
-
-    <div class="features" id="features">
-        <h2 class="section-title fade-in visible">Our Features</h2>
-        <div class="features-grid">
-            <div class="feature-card fade-in visible">
-                <h3 class="feature-title">Built to Endure</h3>
-                <ul class="feature-list">
-                    <li>Engineered for intense movement.</li>
-                    <li>Maximum comfort and durability.</li>
-                </ul>
-            </div>
-            <div class="feature-card fade-in visible">
-                <h3 class="feature-title">Design for Champions</h3>
-                <ul class="feature-list">
-                    <li>Innovative fit and bold aesthetics.</li>
-                    <li>Crafted for performance at the highest level.</li>
-                </ul>
-            </div>
-            <div class="feature-card fade-in visible">
-                <h3 class="feature-title">Ultimate Flexibility</h3>
-                <ul class="feature-list">
-                    <li>Adaptive stretch for complete movement freedom.</li>
-                    <li>Perfectly suited for all athletic needs.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <section class="why-choose">
-        <h2>Why Choose Tatakai?</h2>
-        <div class="benefits">
-            <div class="benefit-item">
-                <h3>Built to Last</h3>
-                <p>Made to survive everything—from late-night study sessions to intense workouts. No more worrying about your gear giving up before you do!</p>
-            </div>
-           
-            <div class="benefit-item">
-                <h3>Study to Gym, No Problem</h3>
-                <p>Whether you’re running to class, hitting the gym, or grabbing coffee, this gear adapts with you, keeping up no matter what’s on your schedule
-                </section>
-                    
-                    <section class="cta">
-                        <div class="cta-content">
-                            
-                            <a href="#" class="button">Learn More</a>
-                        </div>
-                    </section>
+            <p>Welcome to Tatakai, where power and precision is so great that even unicorns would trade their
