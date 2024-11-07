@@ -20,15 +20,9 @@
 
         /* Animated Gradient Background */
         @keyframes gradientAnimation {
-            0% {
-                background: linear-gradient(to bottom, #121212, #2b2b2b);
-            }
-            50% {
-                background: linear-gradient(to bottom, #2b2b2b, #121212);
-            }
-            100% {
-                background: linear-gradient(to bottom, #121212, #2b2b2b);
-            }
+            0% { background: linear-gradient(to bottom, #121212, #2b2b2b); }
+            50% { background: linear-gradient(to bottom, #2b2b2b, #121212); }
+            100% { background: linear-gradient(to bottom, #121212, #2b2b2b); }
         }
 
         .hero {
@@ -41,7 +35,7 @@
             padding: 2rem;
             color: white;
             background: linear-gradient(to bottom, #121212, #2b2b2b);
-            animation: gradientAnimation 10s ease infinite; /* Animation applied to background */
+            animation: gradientAnimation 10s ease infinite;
         }
 
         .logo {
@@ -67,7 +61,7 @@
 
         /* Side-by-side image container */
         .image-container {
-            display: flex;
+            display: inline;
             gap: 10px;
             margin-bottom: 1rem;
             max-width: 80%;
@@ -79,16 +73,17 @@
             height: auto;
             border-radius: 15px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 5px;
         }
 
         .image-container img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(255, 69, 0, 0.5); /* Glowing effect on hover */
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(255, 69, 0, 0.5);
         }
 
         .features {
             padding: 4rem 2rem;
-            background-color: #121212; /* Dark background */
+            background-color: #121212;
             color: #f5f5f5;
             text-align: center;
             position: relative;
@@ -97,11 +92,11 @@
         .section-title {
             font-size: 3rem;
             font-weight: bold;
-            color: #ff6347; /* Accent color */
+            color: #ff6347;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 15px rgba(255, 69, 0, 0.5); /* Glowing effect */
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 15px rgba(255, 69, 0, 0.5);
         }
 
         /* Feature Cards */
@@ -114,10 +109,10 @@
         }
 
         .feature-card {
-            background: rgba(0, 0, 0, 0.6); /* Dark transparent background */
+            background: rgba(0, 0, 0, 0.6);
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5); /* Subtle glow */
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
             width: 300px;
             text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -126,7 +121,7 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(255, 69, 0, 0.7); /* Intensified glow on hover */
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.7);
         }
 
         .feature-title {
@@ -137,13 +132,13 @@
             -webkit-background-clip: text;
             color: transparent;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for glow */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
             margin-bottom: 1rem;
             transition: background-position 0.5s ease;
         }
 
         .feature-card:hover .feature-title {
-            background-position: 100% 50%; /* Glow animation on hover */
+            background-position: 100% 50%;
         }
 
         .feature-list {
@@ -157,45 +152,70 @@
             margin: 1rem 0;
         }
 
-        /* Fade in animation */
-        .fade-in {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+        /* Why Choose Tatakai Section */
+        .why-choose {
+            background-color: #000b0b;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
         }
 
-        .fade-in.visible {
-            opacity: 1;
+        .why-choose h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
         }
 
-        /* Responsiveness */
-        @media (max-width: 768px) {
-            .features-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .feature-card {
-                width: 80%;
-            }
+        .why-choose .benefits {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .button {
+            display: inline-block;
+            background: #021a0e;
+            color: #690a12;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
+            border: 3px solid #ff6347;
+            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #000b0b;
+            color: rgb(255, 255, 255);
+            padding: 3rem 2rem;
+            text-align: center;
+            
         }
 
-        /* Animation for Hero Text */
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 5px rgba(255, 69, 0, 0.8), 0 0 10px rgba(255, 69, 0, 0.6), 0 0 20px rgba(255, 69, 0, 0.4);
-            }
-            50% {
-                text-shadow: 0 0 10px rgba(255, 69, 0, 0.8), 0 0 20px rgba(255, 69, 0, 0.6), 0 0 30px rgba(255, 69, 0, 0.4);
-            }
-            100% {
-                text-shadow: 0 0 5px rgba(255, 69, 0, 0.8), 0 0 10px rgba(255, 69, 0, 0.6), 0 0 20px rgba(255, 69, 0, 0.4);
-            }
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #000b0b;
+            color: rgb(6, 51, 43);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .why-choose .benefit-item {
+            max-width: 300px;
+            margin: 1rem;
+            font-size: 1.2rem;
+            border: 3px solid #ff6347; /* Adding a border around the benefit items */
+            padding: 1rem; /* Adding padding inside the frame */
+            border-radius: 10px; /* Rounded corners for the frame */
+            background-color: rgba(255, 255, 255, 0.1); /* Slight background for contrast */
+            box-shadow: 0 4px 10px rgba(255, 69, 0, 0.2); /* Optional shadow for better visibility */
+            transition: transform 0.3s ease; /* Optional hover effect */
         }
 
-        .tagline span {
-            font-weight: bold;
-            color: #ff6347;
-            animation: glow 1.5s infinite alternate;
+        .why-choose .benefit-item:hover {
+            transform: scale(1.05); /* Slight scale-up effect when hovered */
+            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.5); /* Stronger shadow on hover */
+        }
+
+        .why-choose .benefit-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -206,7 +226,6 @@
             Fuel the <span>beast</span> in you
         </div>
         
-        <!-- Updated image container for side-by-side images -->
         <div class="image-container">
             <img src="2.jpg" alt="First Image">
             <img src="1.jpg" alt="Second Image">
@@ -219,7 +238,6 @@
         </div>
     </div>
 
-    <!-- Features Section -->
     <div class="features" id="features">
         <h2 class="section-title fade-in visible">Our Features</h2>
         <div class="features-grid">
@@ -240,4 +258,29 @@
             <div class="feature-card fade-in visible">
                 <h3 class="feature-title">Ultimate Flexibility</h3>
                 <ul class="feature-list">
-                    <li>Adaptive stretch for
+                    <li>Adaptive stretch for complete movement freedom.</li>
+                    <li>Perfectly suited for all athletic needs.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="why-choose">
+        <h2>Why Choose Tatakai?</h2>
+        <div class="benefits">
+            <div class="benefit-item">
+                <h3>Built to Last</h3>
+                <p>Made to survive everything—from late-night study sessions to intense workouts. No more worrying about your gear giving up before you do!</p>
+            </div>
+           
+            <div class="benefit-item">
+                <h3>Study to Gym, No Problem</h3>
+                <p>Whether you’re running to class, hitting the gym, or grabbing coffee, this gear adapts with you, keeping up no matter what’s on your schedule
+                </section>
+                    
+                    <section class="cta">
+                        <div class="cta-content">
+                            
+                            <a href="#" class="button">Learn More</a>
+                        </div>
+                    </section>
